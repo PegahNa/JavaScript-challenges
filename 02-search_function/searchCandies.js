@@ -14,7 +14,7 @@ const candies = [
   { name: "Fraise Tagada", price: 5.99 },
 ];
 
-function searchCandies(search, maxPrice) {
+const result = ((search, maxPrice) => {
   const matchCandies = candies.filter(
     (candy) =>
       candy.name.toLowerCase().includes(search.toLowerCase()) &&
@@ -22,9 +22,7 @@ function searchCandies(search, maxPrice) {
   );
 
   return matchCandies.map((candy) => candy.name);
-}
-
-const result = searchCandies("Ma", 2);
+})("Ma", 2);
 console.log(result);
 
 module.exports = searchCandies;
