@@ -1,4 +1,5 @@
 const Candy = require("./candy.js");
+
 class ShoppingBasket {
   constructor() {
     this.discount = 0;
