@@ -14,15 +14,14 @@ const candies = [
   { name: "Fraise Tagada", price: 5.99 },
 ];
 
-const result = ((search, maxPrice) => {
-  const matchCandies = candies.filter(
+const searchCandies = (person_name, maxPrice) => {
+  const result = candies.filter(
     (candy) =>
-      candy.name.toLowerCase().includes(search.toLowerCase()) &&
-      candy.price <= maxPrice
+      candy.name.toLowerCase().startsWith(person_name.toLowerCase()) &&
+      Number(candy.price) <= maxPrice
   );
 
-  return matchCandies.map((candy) => candy.name);
-})("Ma", 2);
-console.log(result);
+  return result.map((candy) => candy.name);
+};
 
 module.exports = searchCandies;
