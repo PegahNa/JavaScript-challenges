@@ -1,15 +1,21 @@
 const Candy = require("./candy.js");
 class ShoppingBasket {
   constructor() {
+    this.discount = 0;
     this.items = [];
   }
 
+  applyDiscount(discount) {
+    this.discount = discount;
+  }
+
   getTotalPrice() {
-    const totalPrice = this.items.reduce(
-      (total, item) => total + item.getPrice(),
-      0
-    );
-    return totalPrice.toFixed(2);
+    let totalPrice = 0;
+    this.items.forEach((item) => {
+      totalPrice += item.getPrice();
+    });
+
+    return totalPrice - this.discount;
   }
 
   addItem(item) {
