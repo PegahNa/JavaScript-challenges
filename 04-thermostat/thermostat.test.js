@@ -38,4 +38,21 @@ describe("Thermostat", () => {
     new_thermostat.reset();
     expect(new_thermostat.getTemperature()).toEqual(20);
   });
+
+  it("checks the energyUsage method", () => {
+    const new_thermostat = new Thermostat();
+    expect(new_thermostat.energyUsage()).toBe("medium Usage");
+
+    new_thermostat.setSavingMode(false);
+    for (let i = 0; i < 10; i++) {
+      new_thermostat.up();
+    }
+    expect(new_thermostat.energyUsage()).toBe("high Usage");
+
+    for (let i = 0; i < 15; i++) {
+      new_thermostat.down();
+    }
+
+    expect(new_thermostat.energyUsage()).toBe("low Usage");
+  });
 });

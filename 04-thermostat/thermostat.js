@@ -22,25 +22,21 @@ class Thermostat {
     this.temperature = 20;
   }
 
+  setSavingMode(something) {
+    this.powerSaving = something;
+  }
+
   getTemperature() {
     return this.temperature;
   }
 
-  lowUsage() {
+  energyUsage() {
     if (this.temperature < 18) {
-      console.log("low Usage");
-    }
-  }
-
-  mediumUsage() {
-    if (this.temperature > 18 && this.temperature < 25) {
-      console.log("medium Usage");
-    }
-  }
-
-  highUsage() {
-    if (this.temperature > 25) {
-      console.log("high Usage");
+      return "low Usage";
+    } else if (this.temperature <= 25) {
+      return "medium Usage";
+    } else {
+      return "high Usage";
     }
   }
 }
