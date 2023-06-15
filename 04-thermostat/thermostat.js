@@ -26,10 +26,6 @@ class Thermostat {
     return this.temperature;
   }
 
-  setTemperature(temperature) {
-    this.temperature = temperature;
-  }
-
   lowUsage() {
     if (this.temperature < 18) {
       console.log("low Usage");
